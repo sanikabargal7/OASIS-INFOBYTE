@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Calculator</title>
+  
+  <style>
+    body{
+        background-color:	 #e0b3ff ;
+    }
+
+    .h1{
+        text-align: center;
+    }
+    .calculator-container{
+            height:380px;
+            width:280px;
+            background-color:#00001a ;
+            margin-left: auto;
+            margin-right:auto;
+            margin-top:200px;
+            border-radius:15px;
+            padding:10px;
+
+          }
+          .brand-name{
+            color:aliceblue;
+            margin-left:15px;
+            
+            font-size:25px;
+            font-weight:bold;
+          }
+          .calculator-screen{
+            font-size:20px;
+            width:255px;
+            height:35px;
+            display:block;
+            margin-left:auto;
+            margin-right:auto;
+            background-color:#66cc99;
+
+
+          }
+          .buttons-container{
+            display:flex;
+            flex-direction:row;
+            justify-content:space-around;
+            
+            margin-left: 5px;
+          margin-right: 5px;;
+          }
+          .calculator-button{
+          background-color: gray;
+        
+          height:50px;
+          width:60px;
+          font-size:25px;
+          font-weight:bold;
+          border-radius:7px;
+          margin:7px; 
+          }
+          .calculator-button:hover{
+            box-shadow:0 2px 5px white;
+            transition:0.4s;
+            height:55px;
+          width:65px;
+          }
+          .calculator-button-a {
+            background-color:#ff6666;
+            height:50px;
+          width:60px;
+          font-size:20px;
+          font-weight:bold;
+          border-radius:7px;
+          margin:7px;
+          }
+          .calculator-button:hover{
+            box-shadow:0 2px 5px white;
+            transition:0.4s;
+          }
+
+  </style>
+</head>
+
+
+<script>
+  function handleClick(val)
+  {
+    const inputBox = document.getElementById("calculator-screen");
+    inputBox.value = (inputBox.value + val);
+  }
+
+  function clearScreen()
+  {
+    const inputBox = document.getElementById("calculator-screen");
+    inputBox.value = "";
+  }
+
+  function calculate()
+  {
+    const inputBox = document.getElementById("calculator-screen");
+    const ans = eval(inputBox.value);
+    inputBox.value = ans;
+  }
+</script>
+
+<body>
+   
+
+  <div class="calculator-container">
+    <p class="brand-name">CASIO</p>
+
+    <input type="text" class="calculator-screen" id="calculator-screen"/>
+
+    <div class="buttons-container">
+      <button class="calculator-button" onClick="handleClick(7)">7</button>
+      <button class="calculator-button" onClick="handleClick(8)">8</button>
+      <button class="calculator-button" onClick="handleClick(9)">9</button>
+      <button class="calculator-button-a bg-red"  onclick="clearScreen()">CLR</button>
+    </div>
+
+    <div class="buttons-container">
+      <button class="calculator-button" onClick="handleClick(4)">4</button>
+      <button class="calculator-button" onClick="handleClick(5)">5</button>
+      <button class="calculator-button" onClick="handleClick(6)">6</button>
+      <button class="calculator-button " onClick="handleClick('-')">-</button>
+    </div>
+
+    <div class="buttons-container">
+      <button class="calculator-button" onClick="handleClick(1)">1</button>
+      <button class="calculator-button" onClick="handleClick(2)">2</button>
+      <button class="calculator-button" onClick="handleClick(3)">3</button>
+      <button class="calculator-button " onClick="handleClick('+')">+</button>
+    </div>
+
+    <div class="buttons-container">
+      <button class="calculator-button" onClick="handleClick(0)">0</button>
+      <button class="calculator-button bg-red" onClick="handleClick('/')">/</button>
+      <button class="calculator-button bg-red" onClick="handleClick('*')">*</button>
+      <button class="calculator-button bg-red" onclick="calculate()">=</button>
+    </div>
+
+  </div>
+
+</body>
+
+</html>
